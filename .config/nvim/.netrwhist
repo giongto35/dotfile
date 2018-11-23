@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/thanh/go/src/github.com/giongto35/CS2D'
+let g:netrw_dirhist_2='/Users/thanh/go/src/github.com/giongto35/CS2D/cs2dclient'
+let g:netrw_dirhist_3='/Users/thanh/go/src/github.com/giongto35/CS2D/cs2dclient/src'
+let g:netrw_dirhist_4='/Users/thanh/go/src/github.com/giongto35/CS2D/cs2dclient'
+let g:netrw_dirhist_5='/Users/thanh/go/src/github.com/giongto35/CS2D'
+let g:netrw_dirhist_6='/Users/thanh/go/src/github.com/giongto35/CS2D/cs2dclient'
+let g:netrw_dirhist_7='/Users/thanh/go/src/github.com/giongto35/CS2D/cs2dclient/src'
+let g:netrw_dirhist_8='/Users/thanh/go/src/github.com/giongto35/CS2D/cs2dclient/src/states'
