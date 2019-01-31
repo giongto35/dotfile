@@ -19,7 +19,8 @@ Plug 'janko-m/vim-test'
 "Plug 'kshenoy/vim-signature'
 "Plug 'ludovicchabant/vim-gutentags'
 Plug 'milkypostman/vim-togglelist'
-Plug 'neomake/neomake'
+"Plug 'neomake/neomake'
+Plug 'w0rp/ale'
 "Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeTabsToggle' }
@@ -200,6 +201,15 @@ let g:go_fmt_experimental = 1
 " Run Neomake only on buffer save
 "autocmd! BufWritePost,BufEnter * Neomake
 
+" Disable inherited syntastic
+"let g:syntastic_mode_map = {
+  "\ "mode": "passive",
+  "\ "active_filetypes": [],
+  "\ "passive_filetypes": [] }
+
+"let g:neomake_serialize = 1
+"let g:neomake_serialize_abort_on_error = 1
+
 " NERDTree
 " Toggle NERDTree with Ctrl-N
 map <C-n> :NERDTreeTabsToggle<CR>
@@ -208,6 +218,7 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.pyc$']
 " Add keyboard shortcut for revealing current file in NERDTree
 nmap ,n :NERDTreeFind<CR>
+nmap cd :cd %:h<CR>
 
 " Ag
 " Always start searching from project root, not cwd
@@ -262,9 +273,9 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
 " Ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 0
+"let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_cmd = 'CtrlP'
+"let g:ctrlp_working_path_mode = 0
 
 " Mouse
 set mouse=a
@@ -279,8 +290,6 @@ nnoremap gl :GoImplements<CR>
 nnoremap gcr :GoCallers<CR>
 nnoremap gce :GoCallee<CR>
 
-nnoremap J :bprev<cr>
-nnoremap K :bnext<cr>
 nnoremap H :tabprev<cr>
 nnoremap L :tabnext<cr>
 
@@ -292,7 +301,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
-let g:go_auto_sameids = 1
 let g:go_snippet_engine = "neosnippet"
 
 let g:go_fmt_command = "goimports"
@@ -313,6 +321,7 @@ xmap <C-e>     <Plug>(neosnippet_expand_target)
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
+let g:SuperTabDefaultCompletionType = "<c-n>"
 " For conceal markers.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
@@ -326,3 +335,15 @@ let g:neosnippet#snippets_directory='~/.local/share/nvim/snippets/'
 
 " Close autocompletion when pressing enter
 inoremap <silent><expr> <C-j> pumvisible() ? "\<C-Y>" : "\<CR>"
+
+" ale setup
+let g:ale_set_loclist = 1
+"let g:ale_set_quickfix = 1
+"let g:ale_open_list = 1
+" Set this if you want to.
+" This can be useful if you are combining ALE with
+" some other plugin which sets quickfix errors, etc.
+"let g:ale_keep_list_window_open = 1
+nmap <silent> <Leader>E <Plug>(ale_previous_wrap)
+nmap <silent> <Leader>e <Plug>(ale_next_wrap)
+
