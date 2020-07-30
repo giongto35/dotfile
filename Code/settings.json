@@ -1,0 +1,25 @@
+{
+  "go.formatTool": "goimports",
+  "vim.useSystemClipboard": true,
+  "vim.leader": ",",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["ctrl+n"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["<leader>", "n"],
+      "commands": ["revealInExplorer"]
+    }
+  ],
+  "terminal.integrated.inheritEnv": false,
+  "editor.formatOnSave": true,
+  "[go]": {
+    "editor.insertSpaces": false,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "explorer.confirmDragAndDrop": false
+}
